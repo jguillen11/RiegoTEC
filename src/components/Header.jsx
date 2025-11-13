@@ -1,18 +1,16 @@
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
 
-function Brand() {
+function Header() {
     return (
         <>
-            <Navbar bg="primary" data-bs-theme="dark">
+            <Navbar bg="success" data-bs-theme="dark">
                 <Container>
-                    <Navbar.Brand>
-                        <h1>RIEGO-TEC</h1>
-                    </Navbar.Brand>
+                    <h1 style={{color:"white"}}>RIEGO-TEC</h1>
                 </Container>
             </Navbar>
         </>
     );
 }
 
-export default Brand;
+export default Header;

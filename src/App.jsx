@@ -1,4 +1,4 @@
-import Brand from './components/Brand'
+import Header from './components/Header'
 import Layout from './components/Layout'
 
 
@@ -6,7 +6,7 @@ import Layout from './components/Layout'
 
     return (
       <>
-        <Brand/>
+        <Header/>
         <Layout/>
       </>
     )

@@ -8,12 +8,12 @@ function SensorPieChart({ title, value, color }) {
 
     return (
         <div style={{ textAlign: 'center' }}>
-            <h5>{title}</h5>
-            <PieChart width={200} height={200}>
+            <h5 style={{ marginBottom: '10px' }}>{title}</h5>
+            <PieChart width={180} height={180}>
                 <Pie
                     data={data}
                     dataKey="value"
-                    innerRadius="70%"
+                    innerRadius="90%"
                     outerRadius="100%"
                     paddingAngle={3}
                     cornerRadius={50}
@@ -23,12 +23,18 @@ function SensorPieChart({ title, value, color }) {
                     <Cell fill={color} />
                     <Cell fill="#e0e0e0" />
                 </Pie>
+
+                {/* Texto centrado */}
                 <text
-                    x={100}
-                    y={105}
+                    x={90}
+                    y={90}
                     textAnchor="middle"
                     dominantBaseline="middle"
-                    style={{ fontSize: '18px', fontWeight: 'bold' }}
+                    style={{
+                        fontSize: '18px',
+                        fontWeight: 'bold',
+                        fill: '#333',
+                    }}
                 >
                     {value}%
                 </text>
