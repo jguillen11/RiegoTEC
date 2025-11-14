@@ -66,7 +66,6 @@ function Header() {
                         className="flex items-center gap-3 cursor-pointer select-none"
                         onClick={toggleMenu}
                     >
-                        {/* AVATAR */}
                         {user.photoURL ? (
                             <img
                                 src={user.photoURL}
