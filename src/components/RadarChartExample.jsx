@@ -1,7 +1,7 @@
 import { RadarChart, Radar, PolarAngleAxis, PolarRadiusAxis, Legend, PolarGrid, ResponsiveContainer } from 'recharts';
 
 const data = [
-    { factor: 'Humedad', valor: 68, fullMark: 100 },
+    { factor: 'Humedad', valor: 85, fullMark: 100 },
     { factor: 'Temperatura', valor: 42, fullMark: 100 },
     { factor: 'Luz', valor: 80, fullMark: 100 },
 ];

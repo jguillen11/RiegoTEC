@@ -13,7 +13,7 @@ function SensorPieChart({ title, value, color }) {
                 <Pie
                     data={data}
                     dataKey="value"
-                    innerRadius="90%"
+                    innerRadius="95%"
                     outerRadius="100%"
                     paddingAngle={3}
                     cornerRadius={50}
@@ -24,7 +24,6 @@ function SensorPieChart({ title, value, color }) {
                     <Cell fill="#e0e0e0" />
                 </Pie>
 
-                {/* Texto centrado */}
                 <text
                     x={90}
                     y={90}
