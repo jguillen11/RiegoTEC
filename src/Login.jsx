@@ -6,14 +6,13 @@ import { useNavigate } from "react-router-dom";
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  // Estado para manejar y mostrar mensajes de error
   const [error, setError] = useState(""); 
 
   const navigate = useNavigate(); 
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError(""); // Limpiar cualquier error previo al intentar iniciar sesión
+    setError(""); 
 
     try {
       const result = await signInWithEmailAndPassword(auth, email, password);
@@ -23,14 +22,13 @@ function Login() {
     } catch (err) {
       console.error("Error al iniciar sesión:", err);
       
-      // Mostrar un mensaje de error genérico al usuario
-      // Puedes usar 'err.code' para mensajes más específicos si lo deseas
+    
       setError("Error: Correo electrónico o contraseña incorrectos."); 
     }
   };
 
   const handleGoogleLogin = async () => {
-    setError(""); // Limpiar cualquier error previo
+    setError("");
 
     try {
       const provider = new GoogleAuthProvider();
