@@ -17,6 +17,7 @@ function TypesExample({
                 rounded-xl
                 hover:opacity-90 
                 hover:scale-[1.02]
+                cursor-pointer
                 transition 
                 duration-300 
                 ease-in-out
