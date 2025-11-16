@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 
-function ThermometerChart() {
-    const value = 45;
+function ThermometerChart({ temperatura = 0 }) {
+    
+    const value = temperatura;
     const clampedValue = Math.min(Math.max(value, 0), 100);
 
     const toFahrenheit = (celsius) => {

@@ -1,18 +1,6 @@
 import SensorPieChart from './SensorPieChart';
 
-function Cards({ header = '' }) {
-    const sensorData = {
-        humedad: {value: 35, color: '#0088FE' },
-        luz: {value: 65, color: '#fff128ff' },
-    };
-
-    const headerMap = {
-        'Datos de humedad': 'humedad',
-        'Datos de luz': 'luz',
-    };
-
-    const sensorKey = headerMap[header] || 'luz';
-    const { value, color } = sensorData[sensorKey];
+function Cards({ header, value, color }) {
 
     return (
         <>
