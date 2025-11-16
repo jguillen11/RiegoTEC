@@ -1,49 +1,70 @@
 import React, { useState } from "react";
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
+import { auth } from "../DB/FBConect";
+import { useNavigate } from "react-router-dom";
 
 function Signup() {
-    const [name, setName] = useState("");
-    const [user, setUser] = useState("");
+    const [displayName, setDisplayName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [error, setError] = useState("");
 
-    const handleSubmit = (e) => {
+    const navigate = useNavigate();
+
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log("Nombre:", name);
-        console.log("Usuario:", user);
-        console.log("Correo:", email);
-        console.log("Contraseña:", password);
-        // Aquí podrías agregar la lógica para registrar el usuario (API, Firebase, etc.)
+        setError(""); 
+
+        try {
+            const result = await createUserWithEmailAndPassword(auth, email, password);
+
+            await updateProfile(result.user, {
+                displayName: displayName 
+                
+            });
+
+            console.log("Usuario registrado y perfil actualizado:", result.user);
+
+            navigate("/home"); 
+        } catch (err) {
+            console.error("Error al registrarse:", err);
+            let errorMessage = "Error al registrarse. Inténtalo de nuevo.";
+            if (err.code === 'auth/email-already-in-use') {
+                errorMessage = "Este correo ya está registrado.";
+            } else if (err.code === 'auth/weak-password') {
+                errorMessage = "La contraseña debe tener al menos 6 caracteres.";
+            } else {
+                errorMessage = err.message;
+            }
+            setError(errorMessage);
+        }
     };
 
     return (
         <div className="min-h-screen flex items-center justify-center bg-[#DDF4E7]">
             <div className="bg-white shadow-lg rounded-lg p-8 w-full max-w-sm border border-[#67C090]">
                 <h1 className="text-3xl font-bold text-center text-[#124170] mb-6">
-                    Riegotec
+                    RiegoTEC
                 </h1>
                 <p className="text-center text-[#26667F] mb-8">
                     Crear una nueva cuenta
                 </p>
 
+                {error && (
+                    <p className="text-red-600 text-center mb-4 text-sm">
+                        {error}
+                    </p>
+                )}
+
                 <form onSubmit={handleSubmit} className="space-y-4">
                     <div>
-                        <label className="block text-[#124170] mb-1 text-sm">Nombre</label>
+                        <label className="block text-[#124170] mb-1 text-sm">Nombre de usuario</label>
                         <input
                             type="text"
-                            placeholder="Tu nombre completo"
-                            value={name}
-                            onChange={(e) => setName(e.target.value)}
-                            className="w-full px-4 py-2 border border-[#67C090] rounded-md focus:outline-none focus:ring-2 focus:ring-[#26667F] focus:border-transparent"
-                        />
-                    </div>
-
-                    <div>
-                        <label className="block text-[#124170] mb-1 text-sm">Usuario</label>
-                        <input
-                            type="text"
-                            placeholder="Nombre de usuario"
-                            value={user}
-                            onChange={(e) => setUser(e.target.value)}
+                            placeholder="Usuario"
+                            value={displayName} 
+                            onChange={(e) => setDisplayName(e.target.value)} 
+                            required
                             className="w-full px-4 py-2 border border-[#67C090] rounded-md focus:outline-none focus:ring-2 focus:ring-[#26667F] focus:border-transparent"
                         />
                     </div>
@@ -55,19 +76,19 @@ function Signup() {
                             placeholder="ejemplo@correo.com"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
+                            required
                             className="w-full px-4 py-2 border border-[#67C090] rounded-md focus:outline-none focus:ring-2 focus:ring-[#26667F] focus:border-transparent"
                         />
                     </div>
 
                     <div>
-                        <label className="block text-[#124170] mb-1 text-sm">
-                            Contraseña
-                        </label>
+                        <label className="block text-[#124170] mb-1 text-sm">Contraseña</label>
                         <input
                             type="password"
                             placeholder="********"
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
+                            required
                             className="w-full px-4 py-2 border border-[#67C090] rounded-md focus:outline-none focus:ring-2 focus:ring-[#26667F] focus:border-transparent"
                         />
                     </div>
@@ -81,7 +102,7 @@ function Signup() {
 
                     <p className="text-center text-sm text-[#26667F] mt-4">
                         ¿Ya tienes una cuenta?{" "}
-                        <a href="/login" className="text-[#124170] font-semibold hover:underline">
+                        <a href="/" className="text-[#124170] font-semibold hover:underline">
                             Inicia sesión
                         </a>
                     </p>

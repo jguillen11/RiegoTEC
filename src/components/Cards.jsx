@@ -1,31 +1,36 @@
-import Card from 'react-bootstrap/Card';
 import SensorPieChart from './SensorPieChart';
 
 function Cards({ header = '' }) {
     const sensorData = {
-        humedad: { name: 'Humedad', value: 68, color: '#0088FE' },
-        temperatura: { name: 'Temperatura', value: 42, color: '#FF8042' },
-        luz: { name: 'Luz', value: 80, color: '#FFBB28' },
+        humedad: {value: 35, color: '#0088FE' },
+        luz: {value: 65, color: '#fff128ff' },
     };
 
     const headerMap = {
         'Datos de humedad': 'humedad',
-        'Datos de temperatura': 'temperatura',
         'Datos de luz': 'luz',
     };
 
     const sensorKey = headerMap[header] || 'luz';
-    const { name, value, color } = sensorData[sensorKey];
+    const { value, color } = sensorData[sensorKey];
 
     return (
-        <Card className="shadow-sm">
-            <Card.Header as="h5" className="text-center">
-                {header}
-            </Card.Header>
-            <Card.Body className="d-flex justify-content-center align-items-center">
-                <SensorPieChart title={name} value={value} color={color} />
-            </Card.Body>
-        </Card>
+        <>
+            <div className="flex flex-col h-full p-1">
+                <div className="bg-white shadow-xl rounded-xl h-full flex flex-col transition-all duration-300">
+
+                    <header className="p-3 border-b border-gray-100">
+                        <h2 className="text-xl font-semibold text-gray-800 text-center">
+                            {header}
+                        </h2>
+                    </header>
+
+                    <div className="flex-grow flex flex-col justify-center items-center p-3">
+                        <SensorPieChart value={value} color={color} />
+                    </div>
+                </div>
+            </div>
+        </>
     );
 }
 

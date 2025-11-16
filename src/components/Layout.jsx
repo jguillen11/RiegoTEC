@@ -1,41 +1,45 @@
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import Cards from '../components/Cards'
+import Header from './Header';
+import Cards from '../components/Cards';
 import DatosGenerales from './DatosGenerales';
-import TypesExample from './TypesExample'
+import TypesExample from './TypesExample';
 import ThermometerChart from './ThermometerChart';
-
+import ToggleRiego from './ToggleRiego';
 
 function AutoLayoutExample() {
     return (
-        <Container className="mt-3">
-            <Row className="text-center mb-3">
-                <Col className="grid grid-cols-4 gap-4">
-                    <TypesExample text='Boton1'/>
-                    <TypesExample text='Boton2'/>
-                    <TypesExample text='Boton3'/>
-                    <TypesExample text='Boton4'/>
-                </Col>
-            </Row>
-            <Row className="g-3 mb-3">
-                <Col md={6} lg={6}>
-                    <Cards header='Datos de humedad'/>
-                </Col >
-                <Col md={6} lg={6}>
-                    <ThermometerChart/>
-                </Col>
+        <>
+            <Header />
+            <main className='max-w-7xl mx-auto px-4 py-3 md:px-6'>
                 
-            </Row>
-            <Row className="g-3">
-                <Col md={6} lg={6}>
-                    <Cards header='Datos de luz'/>
-                </Col>
-                <Col md={6} lg={6}>
-                    <DatosGenerales/>
-                </Col>
-            </Row>
-        </Container>
+                <div className="text-center mb-3">
+                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-3 md:gap-4"> 
+                        <ToggleRiego /> 
+                        <TypesExample text='Actualizar información' />
+                        <TypesExample text='Reiniciar' />
+                    </div>
+                </div>
+                
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-2">
+                    <div>
+                        <Cards header='Datos de humedad' />
+                    </div> 
+
+                    <div>
+                        <ThermometerChart />
+                    </div>
+                </div>
+
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <div>
+                        <Cards header='Datos de luz' /> 
+                    </div>
+                    
+                    <div>
+                        <DatosGenerales />
+                    </div>
+                </div>
+            </main>
+        </>
     );
 }
 

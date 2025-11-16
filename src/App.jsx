@@ -1,22 +1,25 @@
-import Header from './components/Header'
-import Login from './Login'
-import Layout from './components/Layout'
-import Signup from './Signup'
-import { Routes,Route } from 'react-router'
+import { Routes, Route } from "react-router-dom";
+import Login from "./Login";
+import Signup from "./Signup";
+import Layout from "./components/Layout";
+import ProtectedRoute from "./components/ProtectedRoute";
 
-  function App() {
+function App() {
+  return (
+    <Routes>
+      <Route path="/" element={<Login />} />
+      <Route path="/signup" element={<Signup />} />
 
-    return (
-      <>
-        {/* <Header/> */}
-        {/* <Layout/> */}
-        <Routes>
-          <Route path='/' element={<Login/>}/>
-          <Route path='/signup' element={<Signup/>}/>
-          <Route path='/home' element ={<Layout/>}/>
-        </Routes>
-      </>
-    )
-  }
+      <Route
+        path="/home"
+        element={
+          <ProtectedRoute>
+            <Layout />
+          </ProtectedRoute>
+        }
+      />
+    </Routes>
+  );
+}
 
-  export default App
+export default App;
