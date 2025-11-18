@@ -3,11 +3,13 @@ import Login from "./Login";
 import Signup from "./Signup";
 import Layout from "./components/Layout";
 import ProtectedRoute from "./components/ProtectedRoute";
+import InformativePage from "./InformativePage";
 
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<Login />} />
+      <Route path="/" element={<InformativePage />} />
+      <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
 
       <Route

@@ -38,7 +38,10 @@ function AutoLayoutExample() {
 
     return (
         <>
-            <Header />
+            <Header 
+                esDeDia={sensores.esDeDia}
+                ultimaActualizacion={sensores.ultimaActualizacion}
+            />
             <main className='max-w-7xl mx-auto px-4 py-3 md:px-6'>
 
                 <div className="text-center mb-3">
@@ -80,8 +83,6 @@ function AutoLayoutExample() {
                             humedad={sensores.humedad}
                             temperatura={sensores.temperatura}
                             luz={sensores.luz}
-                            esDeDia={sensores.esDeDia}
-                            ultimaActualizacion={sensores.ultimaActualizacion}
                         />
 
                     </div>
