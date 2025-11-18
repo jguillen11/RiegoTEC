@@ -4,8 +4,10 @@ import { signOut } from "firebase/auth";
 import { auth } from "../../DB/FBConect";
 import logo from '../imgs/riegoLogo.png';
 import { useAuth } from "../contexts/AuthContext";
+import { useCultivo } from "../contexts/CultivoContext";
 
 function Header({ esDeDia, ultimaActualizacion }) {
+    const { cultivo } = useCultivo();
     const { user } = useAuth();
 
     const [openMenu, setOpenMenu] = useState(false);
@@ -31,6 +33,10 @@ function Header({ esDeDia, ultimaActualizacion }) {
     const handleLogout = async () => {
         await signOut(auth);
         navigate("/");
+    };
+
+    const handleConfigClick = () => {
+        navigate("/config");
     };
 
     if (!user) {
@@ -63,6 +69,10 @@ function Header({ esDeDia, ultimaActualizacion }) {
                 <div>
                     <p>Última actualización: {ultimaActualizacion}</p>
                     <p>Es de día: {esDeDia ? 'Sí' : 'No'}</p>
+                </div>
+
+                <div>
+                    <p className="text-lg mt-2">🌱 Cultivo seleccionado: <b>{cultivo}</b></p>
                 </div>
 
                 <div className="relative" ref={menuRef}>
@@ -112,6 +122,21 @@ function Header({ esDeDia, ultimaActualizacion }) {
                             </div>
 
                             <button
+                                onClick={handleConfigClick}
+                                className="
+                                block 
+                                w-full 
+                                text-left 
+                                px-4 py-2 
+                                text-sm 
+                                text-gray-700
+                                hover:bg-zinc-100 
+                                hover:text-zinc-700
+                            ">
+                                Configuración de riego
+                            </button>
+
+                            <button
                                 onClick={handleLogout}
                                 className="
                                     block 
@@ -126,20 +151,6 @@ function Header({ esDeDia, ultimaActualizacion }) {
                             >
                                 Cerrar sesión
                             </button>
-
-                            <div className="
-                                px-4 py-2 
-                                text-sm 
-                                text-gray-700 
-                                border-b 
-                                border-gray-100
-                                truncate
-                                hover:bg-zinc-100 
-                                hover:text-zinc-700
-                            ">
-                                <a href="">Configuración de riego</a>
-                            </div>
-
                         </div>
                     )}
                 </div>
