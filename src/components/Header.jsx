@@ -126,6 +126,20 @@ function Header({ esDeDia, ultimaActualizacion }) {
                             >
                                 Cerrar sesión
                             </button>
+
+                            <div className="
+                                px-4 py-2 
+                                text-sm 
+                                text-gray-700 
+                                border-b 
+                                border-gray-100
+                                truncate
+                                hover:bg-zinc-100 
+                                hover:text-zinc-700
+                            ">
+                                <a href="">Configuración de riego</a>
+                            </div>
+
                         </div>
                     )}
                 </div>
