@@ -5,7 +5,7 @@ import { auth } from "../../DB/FBConect";
 import logo from '../imgs/riegoLogo.png';
 import { useAuth } from "../contexts/AuthContext";
 
-function Header() {
+function Header({ esDeDia, ultimaActualizacion }) {
     const { user } = useAuth();
 
     const [openMenu, setOpenMenu] = useState(false);
@@ -57,8 +57,13 @@ function Header() {
                     src={logo}
                     alt="logo"
                     className="h-full object-contain cursor-pointer scale-300 origin-left"
-                    onClick={() => navigate('/home')} 
+                    onClick={() => navigate('/home')}
                 />
+
+                <div>
+                    <p>Última actualización: {ultimaActualizacion}</p>
+                    <p>Es de día: {esDeDia ? 'Sí' : 'No'}</p>
+                </div>
 
                 <div className="relative" ref={menuRef}>
 

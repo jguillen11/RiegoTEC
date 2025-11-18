@@ -1,7 +1,7 @@
 import RadarChartExample from './RadarChartExample';
 
 
-function DatosGenerales({ humedad, temperatura, luz, esDeDia, ultimaActualizacion }) {
+function DatosGenerales({ humedad, temperatura, luz, }) {
 
     const data = [
         { factor: 'Humedad', valor: humedad, fullMark: 100 },
@@ -22,7 +22,6 @@ function DatosGenerales({ humedad, temperatura, luz, esDeDia, ultimaActualizacio
 
                     <div className="flex-grow flex flex-col justify-center items-center p-3">
                         <RadarChartExample data={data} />
-
                     </div>
                 </div>
             </div>

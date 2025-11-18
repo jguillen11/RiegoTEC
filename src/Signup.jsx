@@ -102,7 +102,7 @@ function Signup() {
 
                     <p className="text-center text-sm text-[#26667F] mt-4">
                         ¿Ya tienes una cuenta?{" "}
-                        <a href="/" className="text-[#124170] font-semibold hover:underline">
+                        <a href="/login" className="text-[#124170] font-semibold hover:underline">
                             Inicia sesión
                         </a>
                     </p>
