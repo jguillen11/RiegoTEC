@@ -5,6 +5,7 @@ import Layout from "./components/Layout";
 import ProtectedRoute from "./components/ProtectedRoute";
 import InformativePage from "./InformativePage";
 import ConfigScreen from "./ConfiScreen";
+import CultivoPage from "./cultivoPage";
 
 function App() {
   return (
@@ -12,7 +13,9 @@ function App() {
       <Route path="/" element={<InformativePage />} />
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
+      <Route path='/cultivo' element={<CultivoPage/>}/>
       <Route path="/config" element={<ConfigScreen />} />
+
 
       <Route
         path="/home"

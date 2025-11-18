@@ -25,7 +25,7 @@ function Signup() {
 
             console.log("Usuario registrado y perfil actualizado:", result.user);
 
-            navigate("/home"); 
+            navigate("/cultivo"); 
         } catch (err) {
             console.error("Error al registrarse:", err);
             let errorMessage = "Error al registrarse. Inténtalo de nuevo.";
