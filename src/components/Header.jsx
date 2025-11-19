@@ -6,7 +6,7 @@ import logo from '../imgs/riegoLogo.png';
 import { useAuth } from "../contexts/AuthContext";
 import { useCultivo } from "../contexts/CultivoContext";
 
-function Header({ esDeDia, ultimaActualizacion }) {
+function Header() {
     const { cultivo } = useCultivo();
     const { user } = useAuth();
 
@@ -66,12 +66,7 @@ function Header({ esDeDia, ultimaActualizacion }) {
                     onClick={() => navigate('/home')}
                 />
 
-                <div>
-                    <p>Última actualización: {ultimaActualizacion}</p>
-                    <p>Es de día: {esDeDia ? 'Sí' : 'No'}</p>
-                </div>
-
-                <div>
+                <div className="max-w-7xl mx-auto px-4 h-full flex items-center justify-between">
                     <p className="text-lg mt-2">🌱 Cultivo seleccionado: <b>{cultivo}</b></p>
                 </div>
 

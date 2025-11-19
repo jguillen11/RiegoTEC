@@ -10,6 +10,10 @@ function Login() {
 
   const navigate = useNavigate(); 
 
+  const handleSignClick = () => {
+    navigate('/signup')
+  }
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError(""); 
@@ -103,13 +107,13 @@ function Login() {
           </button>
 
           <p className="text-center text-sm text-[#26667F] mt-4">
-            ¿Aun no tienes cuenta?{" "}
-            <a
-              href="/signup"
-              className="text-[#124170] font-semibold hover:underline"
+            ¿Aun no tienes cuenta?
+            <button
+              onClick={handleSignClick}
+              className="text-[#124170] font-semibold hover:underline cursor-pointer"
             >
               Registrate
-            </a>
+            </button>
           </p>
         </form>
       </div>

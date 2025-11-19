@@ -11,21 +11,25 @@ function Signup() {
 
     const navigate = useNavigate();
 
+    const handleLoginClick = () => {
+        navigate('/login')
+    }
+
     const handleSubmit = async (e) => {
         e.preventDefault();
-        setError(""); 
+        setError("");
 
         try {
             const result = await createUserWithEmailAndPassword(auth, email, password);
 
             await updateProfile(result.user, {
-                displayName: displayName 
-                
+                displayName: displayName
+
             });
 
             console.log("Usuario registrado y perfil actualizado:", result.user);
 
-            navigate("/cultivo"); 
+            navigate("/cultivo");
         } catch (err) {
             console.error("Error al registrarse:", err);
             let errorMessage = "Error al registrarse. Inténtalo de nuevo.";
@@ -62,8 +66,8 @@ function Signup() {
                         <input
                             type="text"
                             placeholder="Usuario"
-                            value={displayName} 
-                            onChange={(e) => setDisplayName(e.target.value)} 
+                            value={displayName}
+                            onChange={(e) => setDisplayName(e.target.value)}
                             required
                             className="w-full px-4 py-2 border border-[#67C090] rounded-md focus:outline-none focus:ring-2 focus:ring-[#26667F] focus:border-transparent"
                         />
@@ -102,9 +106,9 @@ function Signup() {
 
                     <p className="text-center text-sm text-[#26667F] mt-4">
                         ¿Ya tienes una cuenta?{" "}
-                        <a href="/login" className="text-[#124170] font-semibold hover:underline">
+                        <button onClick={handleLoginClick} className="text-[#124170] font-semibold hover:underline cursor-pointer">
                             Inicia sesión
-                        </a>
+                        </button>
                     </p>
                 </form>
             </div>
