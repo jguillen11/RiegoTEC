@@ -8,15 +8,15 @@ function ConfigScreen() {
     const [loading, setLoading] = useState(false); // Para mostrar estado de carga al guardar
 
     const [configData, setConfigData] = useState({
-        DuracionRiego: 0,
-        HumedadMaxima: 0,
-        HumedadMinima: 0,
-        LuzMaxima: 0,
-        LuzMinima: 0,
-        RegarSoloDeDia: true,
-        RiegoAutomatico: true,
-        TemperaturaMaxima: 0,
-        TemperaturaMinima: 0,
+        duracionRiego: 0,
+        humedadMaxima: 0,
+        humedadMinima: 0,
+        luzMaxima: 0,
+        luzMinima: 0,
+        regarSoloDeDia: true,
+        riegoAutomatico: true,
+        temperaturaMaxima: 0,
+        temperaturaMinima: 0,
     });
 
     // Lectura de datos (Tu código original)
@@ -26,15 +26,15 @@ function ConfigScreen() {
             const data = snapshot.val();
             if (data) {
                 setConfigData({
-                    DuracionRiego: data.DuracionRiego || 0,
-                    HumedadMaxima: data.HumedadMaxima || 80,
-                    HumedadMinima: data.HumedadMinima || 40,
-                    LuzMaxima: data.LuzMaxima || 80,
-                    LuzMinima: data.LuzMinima || 20,
-                    RegarSoloDeDia: data.RegarSoloDeDia ?? true,
-                    RiegoAutomatico: data.RiegoAutomatico ?? true,
-                    TemperaturaMaxima: data.TemperaturaMaxima || 60,
-                    TemperaturaMinima: data.TemperaturaMinima || 25,
+                    duracionRiego: data.duracionRiego || 0,
+                    humedadMaxima: data.humedadMaxima || 80,
+                    humedadMinima: data.humedadMinima || 40,
+                    luzMaxima: data.luzMaxima || 80,
+                    luzMinima: data.luzMinima || 20,
+                    regarSoloDeDia: data.regarSoloDeDia ?? true,
+                    riegoAutomatico: data.riegoAutomatico ?? true,
+                    temperaturaMaxima: data.temperaturaMaxima || 60,
+                    temperaturaMinima: data.temperaturaMinima || 25,
                 });
             }
         });
@@ -100,8 +100,8 @@ function ConfigScreen() {
                                 <label className="text-sm font-medium text-slate-600">Riego Automático</label>
                                 <input
                                     type="checkbox"
-                                    name="RiegoAutomatico"
-                                    checked={configData.RiegoAutomatico}
+                                    name="riegoAutomatico"
+                                    checked={configData.riegoAutomatico}
                                     onChange={handleChange}
                                     className="w-5 h-5 text-green-600 rounded focus:ring-green-500 border-gray-300"
                                 />
@@ -112,8 +112,8 @@ function ConfigScreen() {
                                 <label className="text-sm font-medium text-slate-600">Solo regar de día</label>
                                 <input
                                     type="checkbox"
-                                    name="RegarSoloDeDia"
-                                    checked={configData.RegarSoloDeDia}
+                                    name="regarSoloDeDia"
+                                    checked={configData.regarSoloDeDia}
                                     onChange={handleChange}
                                     className="w-5 h-5 text-green-600 rounded focus:ring-green-500 border-gray-300"
                                 />
@@ -128,8 +128,8 @@ function ConfigScreen() {
                                 </label>
                                 <input
                                     type="number"
-                                    name="DuracionRiego"
-                                    value={configData.DuracionRiego}
+                                    name="duracionRiego"
+                                    value={configData.duracionRiego}
                                     onChange={handleChange}
                                     className="w-full p-2 border border-slate-200 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 outline-none transition"
                                 />
@@ -160,16 +160,16 @@ function ConfigScreen() {
                                 <div>
                                     <label className="block text-xs font-bold text-slate-500 uppercase mb-1">Mínima</label>
                                     <input
-                                        type="number" name="HumedadMinima"
-                                        value={configData.HumedadMinima} onChange={handleChange}
+                                        type="number" name="humedadMinima"
+                                        value={configData.humedadMinima} onChange={handleChange}
                                         className="w-full p-3 bg-slate-50 border-transparent rounded-lg focus:bg-white focus:ring-2 focus:ring-blue-500 transition font-mono"
                                     />
                                 </div>
                                 <div>
                                     <label className="block text-xs font-bold text-slate-500 uppercase mb-1">Máxima</label>
                                     <input
-                                        type="number" name="HumedadMaxima"
-                                        value={configData.HumedadMaxima} onChange={handleChange}
+                                        type="number" name="humedadMaxima"
+                                        value={configData.humedadMaxima} onChange={handleChange}
                                         className="w-full p-3 bg-slate-50 border-transparent rounded-lg focus:bg-white focus:ring-2 focus:ring-blue-500 transition font-mono"
                                     />
                                 </div>
@@ -185,16 +185,16 @@ function ConfigScreen() {
                                 <div>
                                     <label className="block text-xs font-bold text-slate-500 uppercase mb-1">Mínima</label>
                                     <input
-                                        type="number" name="TemperaturaMinima"
-                                        value={configData.TemperaturaMinima} onChange={handleChange}
+                                        type="number" name="temperaturaMinima"
+                                        value={configData.temperaturaMinima} onChange={handleChange}
                                         className="w-full p-3 bg-slate-50 border-transparent rounded-lg focus:bg-white focus:ring-2 focus:ring-orange-500 transition font-mono"
                                     />
                                 </div>
                                 <div>
                                     <label className="block text-xs font-bold text-slate-500 uppercase mb-1">Máxima</label>
                                     <input
-                                        type="number" name="TemperaturaMaxima"
-                                        value={configData.TemperaturaMaxima} onChange={handleChange}
+                                        type="number" name="temperaturaMaxima"
+                                        value={configData.temperaturaMaxima} onChange={handleChange}
                                         className="w-full p-3 bg-slate-50 border-transparent rounded-lg focus:bg-white focus:ring-2 focus:ring-orange-500 transition font-mono"
                                     />
                                 </div>
@@ -210,16 +210,16 @@ function ConfigScreen() {
                                 <div>
                                     <label className="block text-xs font-bold text-slate-500 uppercase mb-1">Mínima</label>
                                     <input
-                                        type="number" name="LuzMinima"
-                                        value={configData.LuzMinima} onChange={handleChange}
+                                        type="number" name="luzMinima"
+                                        value={configData.luzMinima} onChange={handleChange}
                                         className="w-full p-3 bg-slate-50 border-transparent rounded-lg focus:bg-white focus:ring-2 focus:ring-yellow-500 transition font-mono"
                                     />
                                 </div>
                                 <div>
                                     <label className="block text-xs font-bold text-slate-500 uppercase mb-1">Máxima</label>
                                     <input
-                                        type="number" name="LuzMaxima"
-                                        value={configData.LuzMaxima} onChange={handleChange}
+                                        type="number" name="luzMaxima"
+                                        value={configData.luzMaxima} onChange={handleChange}
                                         className="w-full p-3 bg-slate-50 border-transparent rounded-lg focus:bg-white focus:ring-2 focus:ring-yellow-500 transition font-mono"
                                     />
                                 </div>
