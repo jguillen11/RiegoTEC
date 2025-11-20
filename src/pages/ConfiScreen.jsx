@@ -1,4 +1,4 @@
-import { db } from "../DB/FBConect";
+import { db } from "../../DB/FBConect";
 import { ref, onValue, update } from "firebase/database"; // Importamos 'update'
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom"; // Para el botón de volver

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useCultivo } from "./contexts/CultivoContext"
+import { useCultivo } from "../contexts/CultivoContext"
 
 function CultivoPage() {
     const [cultivo, setCultivoLocal] = useState("");

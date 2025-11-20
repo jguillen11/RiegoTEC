@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import { GoogleAuthProvider, signInWithPopup, signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../DB/FBConect";
+import { auth } from "../../DB/FBConect";
 import { useNavigate } from "react-router-dom";
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState(""); 
+  const [error, setError] = useState("");
 
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
 
   const handleSignClick = () => {
     navigate('/signup')
@@ -16,7 +16,7 @@ function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError(""); 
+    setError("");
 
     try {
       const result = await signInWithEmailAndPassword(auth, email, password);
@@ -25,9 +25,9 @@ function Login() {
       navigate("/home");
     } catch (err) {
       console.error("Error al iniciar sesión:", err);
-      
-    
-      setError("Error: Correo electrónico o contraseña incorrectos."); 
+
+
+      setError("Error: Correo electrónico o contraseña incorrectos.");
     }
   };
 
@@ -58,7 +58,7 @@ function Login() {
         </p>
 
         {error && (
-          <div 
+          <div
             className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-md mb-4 text-sm font-medium"
             role="alert"
           >

@@ -1,11 +1,11 @@
 import { Routes, Route } from "react-router-dom";
-import Login from "./Login";
-import Signup from "./Signup";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
 import Layout from "./components/Layout";
 import ProtectedRoute from "./components/ProtectedRoute";
-import InformativePage from "./InformativePage";
-import ConfigScreen from "./ConfiScreen";
-import CultivoPage from "./cultivoPage";
+import InformativePage from "./pages/InformativePage";
+import ConfigScreen from "./pages/ConfiScreen";
+import CultivoPage from "./pages/CultivoPage";
 
 function App() {
   return (
@@ -13,7 +13,7 @@ function App() {
       <Route path="/" element={<InformativePage />} />
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
-      <Route path='/cultivo' element={<CultivoPage/>}/>
+      <Route path='/cultivo' element={<CultivoPage />} />
       <Route path="/config" element={<ConfigScreen />} />
 
 

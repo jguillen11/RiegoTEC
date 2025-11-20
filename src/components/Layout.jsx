@@ -8,6 +8,7 @@ import ToggleRiego from './ToggleRiego';
 import { db } from "../../DB/FBConect";
 import { ref, onValue } from "firebase/database";
 import { useState, useEffect } from "react";
+import HistoricoPage from '../pages/HistoricoPage';
 
 function AutoLayoutExample() {
 
@@ -38,7 +39,7 @@ function AutoLayoutExample() {
 
     return (
         <>
-            <Header 
+            <Header
                 esDeDia={sensores.esDeDia}
                 ultimaActualizacion={sensores.ultimaActualizacion}
             />
@@ -86,7 +87,9 @@ function AutoLayoutExample() {
                         />
 
                     </div>
+                    <HistoricoPage/>
                 </div>
+
             </main>
         </>
     );

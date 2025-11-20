@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router";
-import logo from "./imgs/riegoLogo.png";
+import logo from "../imgs/riegoLogo.png";
 function InformativePage() {
     const navigate = useNavigate();
 
